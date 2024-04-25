@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+
+
+---
+
+
+	<BaseLayout title="À Propos | Mickael Medo" description="À Propos de Mickael Medo">
+		<div class="stack gap-20">
+			<main class="wrapper about">
+				<Hero
+					title="À Propos"
+					tagline="Découvrez mon parcours et mes compétences."
+				>
+					<img
+						width="1553"
+						height="873"
+						src="/assets/Mickael travail.jpg"
+						alt="Mickael Medo travail"
+					/>
+				</Hero>
+
+				<section>
+					<h2 class="section-title">Parcours</h2>
+					<div class="content">
+						<p>
+							Originaire d'un parcours professionnel dans l'artisanat, j'ai obtenue mon DEC en ébénisterie puis, j'ai exploré divers horizons professionnels, 
+							cherchant constamment à élargir mes horizons. Cependant, c'est lors de mon engagement dans l'armée de l'air que ma passion pour l'informatique s'est révélée.<br/> 
+							Cette immersion m'a permis de voir au-delà des lignes de code, de découvrir la complexité et la richesse de ce domaine fascinant.
+							Guidé par cette nouvelle passion, j'ai entrepris une reconversion professionnelle pour exercer pleinement ce métier.
+						</p>
+						
+						<p>
+							<br/>Depuis lors, chaque jour est une opportunité pour moi d'acquérir de l'expérience et d'approfondir mes connaissances dans ce domaine dynamique.
+							Ma capacité à m'adapter à de nouveaux environnements et à absorber de nouvelles informations est au cœur de mon parcours. 
+							<br/>Curieux de nature, je suis toujours en quête de nouvelles connaissances et j'apprécie le partage des découvertes avec d'autres passionnés.
+						</p>
+						<p>
+							<br/>Ainsi, fort d'une solide expérience professionnelle et animé par une passion pour l'informatique, 
+							je suis prêt à relever les défis passionnants de l'informatique avec enthousiasme et détermination.<br/>
+							Je suis convaincu que mon parcours varié et ma passion pour l'apprentissage continu me permettront de contribuer de manière significative dans ce domaine qui m'inspire tant.
+						</p>
+					</div>
+				</section>
+				<section>
+					<h2 class="section-title">Études</h2>
+					<div class="content">
+						<p>DEC Ébenisterie.<br/>
+						DEC Maintenance des Véhicules particuliers.<br/>
+						DEP Soutien informatique.</p>
+					</div>
+				</section>
+				<section>
+					<h2 class="section-title">Compétences</h2>
+					<div class="content">
+						<p>Capacité d'adaptation, Autonomie, Réactivité, Travail en équipe, Sens de l'organisation, Rigueur, Curiosité</p>
+					</div>
+				</section>
+			</main>
+			<ContactCTA />
+		</div>
+	</BaseLayout>
+	
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>

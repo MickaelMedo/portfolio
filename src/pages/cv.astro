@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+
+---
+
+<BaseLayout title="CV | Mickael Medo" description="curriculum vitae Mickael Medo">
+        <main class="wrapper about">
+            <Hero
+                title="Curriculum Vitae"
+                tagline="Télécharger mon CV."
+            >    
+            </Hero>
+        </main>
+	<section>
+		<div class="container">
+			<img src="/public/assets/cv_premiere_page.jpg" alt="Aperçu de mon CV">
+			<a download href="/public/assets/CV_Mickael.pdf" class="downloadButton"><Icon icon="pdf-logo" size="1.2em" />Télécharger</a>
+		</div>
+	</section>
+</BaseLayout>
+<style>
+	
+section {
+	position: relative;
+	margin-top: 570px;
+}
+.container {
+	position: relative;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%; 
+    padding: 10px;
+}
+.container img {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    width: 800px; 
+}
+.container .downloadButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+}
+.container:hover .downloadButton {
+    opacity: 1; 
+}
+.downloadButton {
+	display: flex;
+	place-content: center;
+	text-align: center;
+	padding: 0.56em 2em;
+	gap: 0.8em;
+	color: var(--accent-text-over);
+	text-decoration: none;
+	line-height: 1.1;
+	border-radius: 999rem;
+	overflow: hidden;
+	background: var(--gradient-accent-orange);
+	box-shadow: var(--shadow-md);
+	white-space: nowrap;
+}
+@media (min-width: 20em) {
+	.downloadButton {
+		font-size: var(--text-lg);
+	}
+}
+img:hover {
+    filter: blur(1px);
+}
+.downloadButton::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	transition: background-color var(--theme-transition);
+	mix-blend-mode: overlay;
+}
+.downloadButton:focus::after,
+.downloadButton:hover::after {
+	background-color: hsla(var(--gray-999-basis), 0.3);
+}
+@media (min-width: 50em) {
+	.downloadButton {
+		padding: 1.125rem 2.5rem;
+		font-size: var(--text-xl);
+	}
+}	
+@media (max-width: 740px) {
+  section {
+    margin-top: 200px;
+  }
+}
+</style>
+
